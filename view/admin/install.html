@@ -189,7 +189,7 @@
                         $('#password-field').hide();
                         $('#dbhost-field').hide();
 
-                        $('input[name="DB_NAME"]').val('bdwp.db');
+                        $('input[name="DB_NAME"]').val('/data/bdwp.db');
                     } else {
                         // mysql
                         $('#username-field').show();
@@ -321,7 +321,7 @@
                             $("input[name='DB_HOST']").val("172.28.0.2");
                             $("input[name='DB_USER']").val("root");
                             $("input[name='DB_PASS']").val("root");
-                            $("input[name='DB_NAME']").val("bdwp");
+                            $("input[name='DB_NAME']").val("/data/bdwp");
                             $("input[name='DB_HOST']").attr("readonly", true); // 禁用修改，防止提交后出错
                             $("input[name='DB_USER']").attr("readonly", true);
                             $("input[name='DB_PASS']").attr("readonly", true);

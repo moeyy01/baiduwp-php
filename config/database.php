@@ -61,7 +61,7 @@ return [
             // 数据库类型
             'type'            => 'sqlite',
             // 数据库名
-            'database'        => env('DB_NAME', 'bdwp.db'),
+            'database'        => env('DB_NAME', '/data/bdwp.db'),
             // 数据库连接参数
             'params'          => [],
             // 数据库编码默认采用utf8
