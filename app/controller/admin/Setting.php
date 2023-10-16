@@ -57,7 +57,7 @@ class Setting extends BaseController
     {
         $default = [
             'site_name' => 'PanDownload',
-            'program_version' => \app\controller\Index::$version,
+            'program_version' => app\controller\Index::$version,
             'password' => '',
             'admin_password' => env('ADMIN_PASSWORD'),
             'db' => env('DB', false),
