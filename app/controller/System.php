@@ -33,7 +33,7 @@ class System extends BaseController
         $count = false;
 
 
-        if (config('baiduwp.db')) {
+        if (config('/home/baiduwp-php/baiduwp.db')) {
             $data = Db::connect()->table('records')->where('size', '>=', 52428800)->order('id', 'desc')->limit(1)->select();
             $account = [
                 "last_time" => "无解析记录",

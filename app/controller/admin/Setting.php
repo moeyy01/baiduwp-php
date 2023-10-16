@@ -106,6 +106,6 @@ class Setting extends BaseController
 // 本文件由程序自动生成，请勿随意修改，以免失效！
 return {$config};
 PHP;
-        file_put_contents('../config/baiduwp.php', $config);
+        file_put_contents('/home/baiduwp-php/baiduwp.php', $config);
     }
 }

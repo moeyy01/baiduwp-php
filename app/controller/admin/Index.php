@@ -60,7 +60,7 @@ class Index extends BaseController
             'white_count' => $text,
         ];
 
-        if (config('baiduwp.db')) {
+        if (config('/home/baiduwp-php/baiduwp.db')) {
             // 使用统计
             // 获取累计解析数量和大小
             $data = Db::table('records')->table('records')->field('count(*) as count, sum(size) as size')->select();

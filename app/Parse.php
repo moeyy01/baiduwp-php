@@ -169,7 +169,7 @@ class Parse
 
 		$ip = Tool::getIP();
 		$isipwhite = FALSE;
-		if (config('baiduwp.db')) {
+		if (config('/home/baiduwp-php/baiduwp.db')) {
 			$data = Db::connect()->table("ip")->where('ip', $ip)->find();
 			if ($data) {
 				// 存在 判断类型
@@ -229,7 +229,7 @@ class Parse
 
 		list($ID, $cookie) = ["-1", config('baiduwp.cookie')];
 
-		if (config('baiduwp.db')) {
+		if (config('/home/baiduwp-php/baiduwp.db')) {
 			$link_expired_time = config('baiduwp.link_expired_time') ?? 8;
 
 			// 查询数据库中是否存在已经保存的数据
@@ -299,7 +299,7 @@ class Parse
 
 			$message[] = "获取真实下载链接失败：" . json_encode($body_decode);
 
-			if (config('baiduwp.db') && config('baiduwp.check_speed_limit') && $ID != "-1") {
+			if (config('/home/baiduwp-php/baiduwp.db') && config('baiduwp.check_speed_limit') && $ID != "-1") {
 				$result = Db::connect()->table('account')->where('id', $ID)->update(['status' => -1]);
 				if ($result) {
 					return array("error" => -1, "msg" => "SVIP账号自动切换成功，请重新请求获取下载地址", "message" => $message);
@@ -312,7 +312,7 @@ class Parse
 		if (str_contains($real_link, "qdall01") || !str_contains($real_link, 'tsl=0')) {
 			// 账号限速
 			$message[] = "SVIP账号限速";
-			if (config('baiduwp.db') && config('baiduwp.check_speed_limit') && $ID != "-1") {
+			if (config('/home/baiduwp-php/baiduwp.db') && config('baiduwp.check_speed_limit') && $ID != "-1") {
 				$result = Db::connect()->table('account')->where('id', $ID)->update(['status' => -1]);
 				if ($result) {
 					return array("error" => -1, "msg" => "SVIP账号自动切换成功，请重新请求获取下载地址", "message" => $message);
@@ -323,7 +323,7 @@ class Parse
 		}
 
 		// 记录下使用者ip，下次进入时提示
-		if (config('baiduwp.db')) {
+		if (config('/home/baiduwp-php/baiduwp.db')) {
 			$result = Db::connect()->table("records")->insert([
 				'ip' => $ip,
 				'ua' => request()->header('User-Agent'),
