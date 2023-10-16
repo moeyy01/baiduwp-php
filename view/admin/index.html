@@ -59,7 +59,7 @@
                     }
                     const initAccountInfo = () => {
                         // 获取本地账号相关信息
-                        $.get(`/admin/account_info`, function (data, status) {
+                        $.get(`/baidudisk/admin/account_info`, function (data, status) {
                             if (data.error === 0) {
                                 $("#normal_msg").html(getAccountMsg(data.data.local_account));
                                 $("#svip_msg").html(getAccountMsg(data.data.svip_account));
@@ -129,7 +129,7 @@
                     }
 
                     const initIndexInfo = () => {
-                        fetch('/admin/info',
+                        fetch('/baidudisk/admin/info',
                             {
                                 headers: {
                                     'Accept': 'application/json',
@@ -206,7 +206,7 @@
                         if (result.isConfirmed) {
                             Swal.fire("正在清空，请稍等");
                             Swal.showLoading();
-                            $.post("/admin/record/clear_all", function (data, status) {
+                            $.post("/baidudisk/admin/record/clear_all", function (data, status) {
                                 if (status === "success") {
                                     if (data.error === 0) {
                                         Swal.fire("清空成功！", "所有解析数据已被清空。");
@@ -257,7 +257,7 @@
                 function resetAccount(id) {
                     Swal.fire("正在设置，请稍等");
                     Swal.showLoading();
-                    $.post(`/admin/account/reset/${id}`, function (data, status) {
+                    $.post(`/baidudisk/admin/account/reset/${id}`, function (data, status) {
                         if (status === "success") {
                             Swal.fire(data.msg);
                             // 对应行的数据，需要更新
@@ -422,11 +422,11 @@
         }
     })
     const paths = [
-        { id: "index", name: "概览", path: "/admin" },
-        { id: "record", name: "解析记录", path: "/admin/record" },
-        { id: "account", name: "账号管理", path: "/admin/account" },
-        { id: "ip", name: "IP管理", path: "/admin/ip" },
-        { id: "setting", name: "网站设置", path: "/admin/setting" },
+        { id: "index", name: "概览", path: "/baidudisk/admin" },
+        { id: "record", name: "解析记录", path: "/baidudisk/admin/record" },
+        { id: "account", name: "账号管理", path: "/baidudisk/admin/account" },
+        { id: "ip", name: "IP管理", path: "/baidudisk/admin/ip" },
+        { id: "setting", name: "网站设置", path: "/baidudisk/admin/setting" },
     ];
     const isValidPath = (path) => {
         for (let i = 0; i < paths.length; i++) {
@@ -555,7 +555,7 @@
         if (isNaN(newPage)) {
             newPage = 1;
         }
-        fetch(`/admin/${path}/list/${newPage}`, {
+        fetch(`/baidudisk/admin/${path}/list/${newPage}`, {
             headers: {
                 'Accept': 'application/json',
             }
@@ -586,7 +586,7 @@
         if (!isValidPath(path)) return
         Swal.fire("正在添加，请稍等");
         Swal.showLoading();
-        fetch(`/admin/${path}/add`, {
+        fetch(`/baidudisk/admin/${path}/add`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -612,7 +612,7 @@
         if (!isValidPath(path)) return
         Swal.fire("正在更新，请稍等");
         Swal.showLoading();
-        fetch(`/admin/${path}/update`, {
+        fetch(`/baidudisk/admin/${path}/update`, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -649,7 +649,7 @@
             if (result.isConfirmed) {
                 Swal.fire("正在删除，请稍等");
                 Swal.showLoading();
-                fetch(`/admin/${path}/delete/${id}`, {
+                fetch(`/baidudisk/admin/${path}/delete/${id}`, {
                     method: 'POST',
                     headers: {
                         'Accept': 'application/json',

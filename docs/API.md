@@ -8,7 +8,7 @@ Base URLs:
 
 ## GET 获取密码状态
 
-GET /auth/status
+GET /baidudisk/auth/status
 
 检查是否启用密码设置，是否完成密码验证
 
@@ -56,7 +56,7 @@ GET /auth/status
 
 ## GET 检查更新
 
-GET /system/update
+GET /baidudisk/system/update
 
 > 返回示例
 
@@ -98,7 +98,7 @@ GET /system/update
 
 ## GET 系统信息获取
 
-GET /system
+GET /baidudisk/system
 
 获取上次解析数据 & 获取解析状态
 

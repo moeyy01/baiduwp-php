@@ -16,7 +16,7 @@
                 function submitForm() {
                     Swal.fire("正在登录，请稍等");
                     Swal.showLoading();
-                    fetch("/admin/login", {
+                    fetch("/baidudisk/admin/login", {
                         method: "POST",
                         credentials: "same-origin",
                         body: `password=${$("input[name='setting_password']").val()}`,

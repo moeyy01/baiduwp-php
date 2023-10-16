@@ -50,8 +50,8 @@ $('[data-qrcode-text]').each(function (i) {
 });
 
 let CheckUpdate = localStorage.getItem('UpdateTip') || "true";
-if (CheckUpdate === "true")
-	getAPI('/system/update').then(function (response) {
+if (CheckUpdate === "true111")
+	getAPI('/baidudisk/system/update').then(function (response) {
 		if (!response.success) {
 			console.log('检查更新失败！详细信息：');
 			console.log(response);

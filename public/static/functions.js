@@ -306,7 +306,7 @@ async function OpenRoot(surl, pwd, password = "") {
 			pwd,
 			password
 		}
-		await fetch(`/parse/list`, { // fetch API
+		await fetch(`/baidudisk/parse/list`, { // fetch API
 			credentials: 'same-origin',
 			method: 'POST',
 			body: http_build_query(data),
@@ -352,7 +352,7 @@ async function OpenDir(path) {
 			dir: path,
 			...files.dirdata
 		}
-		await fetch(`/parse/list`, { // fetch API
+		await fetch(`/baidudisk/parse/list`, { // fetch API
 			credentials: 'same-origin',
 			method: 'POST',
 			body: http_build_query(data),
@@ -460,7 +460,7 @@ async function Download(index = 0) {
 	}
 
 	try {
-		await fetch(`/parse/link`, { // fetch API
+		await fetch(`/baidudisk/parse/link`, { // fetch API
 			credentials: 'same-origin',
 			method: 'POST',
 			body: http_build_query(data),

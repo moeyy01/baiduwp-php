@@ -34,7 +34,7 @@ class Index extends BaseController
             }
         }
         if (session('admin')) {
-            return redirect('/admin');
+            return redirect('/baidudisk/admin');
         }
         return view('admin/login', [
             'site_name' => config('baiduwp.site_name'),

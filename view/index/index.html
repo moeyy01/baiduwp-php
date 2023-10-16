@@ -3,7 +3,6 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="referrer" content="same-origin" />
     <meta name="author" content="Yuan_Tuo" />
     <meta name="author" content="LC" />
     <meta name="version" content="<?= $program_version ?>" />
@@ -14,17 +13,17 @@
     </title>
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="static/index.css?v=<?= $program_version ?>" />
-    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.8.1/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdn.staticfile.org/bootstrap/5.3.0-alpha2/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.moeyy.cn/staticfile/font-awesome/5.8.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.moeyy.cn/staticfile/bootstrap/5.3.0-alpha2/css/bootstrap.min.css" />
     <link rel="stylesheet" disabled id="Swal2-Dark"
-        href="https://fastly.jsdelivr.net/npm/@sweetalert2/theme-dark@4.0.2/dark.min.css" />
+        href="https://cdn.moeyy.cn/jsdelivr/npm/@sweetalert2/theme-dark@4.0.2/dark.min.css" />
     <link rel="stylesheet" disabled id="Swal2-Light"
-        href="https://fastly.jsdelivr.net/npm/@sweetalert2/theme-default@4.0.2/default.min.css" />
-    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdn.staticfile.org/bootstrap/5.3.0-alpha2/js/bootstrap.bundle.min.js"></script>
-    <script src="https://fastly.jsdelivr.net/npm/sweetalert2@10.14.0/dist/sweetalert2.min.js"></script>
-    <script src="https://fastly.jsdelivr.net/npm/@keeex/qrcodejs-kx"></script>
-    <script src="https://filecxx.com/script/create_filec_address.js"></script>
+        href="https://cdn.moeyy.cn/jsdelivr/npm/@sweetalert2/theme-default@4.0.2/default.min.css" />
+    <script src="https://cdn.moeyy.cn/staticfile/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.moeyy.cn/staticfile/bootstrap/5.3.0-alpha2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.moeyy.cn/jsdelivr/npm/sweetalert2@10.14.0/dist/sweetalert2.min.js"></script>
+    <script src="https://cdn.moeyy.cn/jsdelivr/npm/@keeex/qrcodejs-kx"></script>
+    <script src="https://cdn.moeyy.cn/create_filec_address.js"></script>
     <script src="static/color.js?v=<?= $program_version ?>"></script>
     <script src="static/functions.js?v=<?= $program_version ?>"></script>
     <script async="false" src="static/ready.js?v=<?= $program_version ?>"></script>
@@ -42,10 +41,10 @@
                     <li class="nav-item"><a class="nav-link" href="javascript:navigate('index')">首页</a></li>
                     <li class="nav-item"><a class="nav-link" href="javascript:navigate('help')">使用帮助</a></li>
                     <li class="nav-item"><a class="nav-link" href="javascript:navigate('usersettings')">用户设置</a></li>
-                    <li class="nav-item"><a class="nav-link" href="https://github.com/yuantuo666/baiduwp-php"
-                            target="_blank">Github</a></li>
+                    <!-- <li class="nav-item"><a class="nav-link" href="https://github.com/yuantuo666/baiduwp-php"
+                            target="_blank">Github</a></li> -->
                     <li class="nav-item" style="flex-grow: 1;"></li>
-                    <li class="nav-item"><a class="nav-link" href="/admin" target="_blank">管理后台</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/baidudisk/admin" target="_blank">管理后台</a></li>
                 </ul>
             </div>
         </div>
@@ -78,7 +77,7 @@
             </div>
             <script>
                 function checkPassword() {
-                    getAPI('/auth/status').then(function (response) {
+                    getAPI('/baidudisk/auth/status').then(function (response) {
                         switch (response.data.status) {
                             case 0:
                                 // 无密码
@@ -108,7 +107,7 @@
                     navigate(hash)
 
                     // 获取系统信息
-                    getAPI('/system').then(function (response) {
+                    getAPI('/baidudisk/system').then(function (response) {
                         if (response.success) {
                             const data = response.data;
                             if (data.error === 114514) {

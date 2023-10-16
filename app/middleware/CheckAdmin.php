@@ -19,7 +19,7 @@ class CheckAdmin
             if ($request->isAjax()) {
                 return json(['error' => 403, 'msg' => '请刷新当前页面登录']);
             }
-            return redirect('/admin/login');
+            return redirect('/baidudisk/admin/login');
         }
 
         return $next($request);
